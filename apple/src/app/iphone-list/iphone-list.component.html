@@ -1,19 +1,19 @@
-<div class="table table-lg">
+<div class="table table-sm">
   <table>
     <thead class="table align-middle" >
         <tr>
-           <th>Diseño</th>
-           <th>Modelo</th>
-           <th>Pantalla</th>
-           <th>Chip</th>
-           <th>Bateria</th>
-           <th>Conector</th>
-           <th>Precio</th>
-           <th>Stock</th>
-           <th>Comprar</th>
+           <th class="p-3">Diseño</th>
+           <th class="p-3">Modelo</th>
+           <th class="p-3">Pantalla</th>
+           <th class="p-3">Chip</th>
+           <th class="p-3">Bateria</th>
+           <th class="p-3">Conector</th>
+           <th class="p-3">Precio</th>
+           <th class="p-3">Stock</th>
+           <th class="p-3">Comprar</th>
         </tr>
         @for (iphone of iphones; track iphone.model) {
-            <tr [ngClass]="{'sale': iphone.sale}"> 
+            <tr class="m-3" [ngClass]="{'sale': iphone.sale}"> 
               <td><img class="img" [src]="iphone.img" [alt]=""></td>
               <td>{{iphone.model}}</td>
               <td>{{iphone.screen}}</td>
@@ -23,16 +23,17 @@
               <td>{{ iphone.price | currency }}</td>
               @if (iphone.stock > 0) {
                 <td>{{ iphone.stock }}</td>
+                <td>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="moreQuantity(iphone)">+</button>               
+                    <input type="text" class="input-sm" [(ngModel)]="iphone.quantity" (keyup)="changeQuantity($event,iphone)" >
+                    <button type="button" class="btn btn-primary btn-sm" (click)="lessQuantity(iphone)">-</button>
+                  </div>
+                </td>
               } @else {
                 <td><span class="badge text-bg-danger">Sin Stock</span></td>
               }
-              <td>
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-primary btn-sm" (click)="moreQuantity(iphone)">+</button>               
-                  <input type="text" class="input-sm" [(ngModel)]="iphone.quantity" (keyup)="changeQuantity($event,iphone)" >
-                  <button type="button" class="btn btn-primary btn-sm" (click)="lessQuantity(iphone)">-</button>
-                </div>
-              </td>
+              
              
             </tr>
           } @empty {
