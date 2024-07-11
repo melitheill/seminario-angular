@@ -1,0 +1,47 @@
+<div class="table table-lg">
+  <table>
+    <thead class="table align-middle" >
+        <tr>
+           <th>Diseño</th>
+           <th>Modelo</th>
+           <th>Pantalla</th>
+           <th>Chip</th>
+           <th>Bateria</th>
+           <th>Conector</th>
+           <th>Precio</th>
+           <th>Stock</th>
+           <th>Comprar</th>
+        </tr>
+        @for (iphone of iphones; track iphone.model) {
+            <tr [ngClass]="{'sale': iphone.sale}"> 
+              <td><img class="img" [src]="iphone.img" [alt]=""></td>
+              <td>{{iphone.model}}</td>
+              <td>{{iphone.screen}}</td>
+              <td>{{iphone.chip}}</td>
+              <td>{{iphone.batery}}</td>
+              <td>{{iphone.conection}}</td>
+              <td>{{ iphone.price | currency }}</td>
+              @if (iphone.stock > 0) {
+                <td>{{ iphone.stock }}</td>
+              } @else {
+                <td><span class="badge text-bg-danger">Sin Stock</span></td>
+              }
+              <td>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-primary btn-sm" (click)="moreQuantity(iphone)">+</button>               
+                  <input type="text" class="input-sm" [(ngModel)]="iphone.quantity" (keyup)="changeQuantity($event,iphone)" >
+                  <button type="button" class="btn btn-primary btn-sm" (click)="lessQuantity(iphone)">-</button>
+                </div>
+              </td>
+             
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="4">No hay productos para mostrar.</td>
+            </tr>
+          }
+          
+          
+       </thead>
+  </table>
+</div>
