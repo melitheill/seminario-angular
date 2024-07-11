@@ -8,6 +8,7 @@ import { IphoneListComponent } from './iphone-list/iphone-list.component';
 import { AppleAboutComponent } from './apple-about/apple-about.component';
 import { CartComponent } from './cart/cart.component';
 import { AppleStoreComponent } from './apple-store/apple-store.component';
+import { InputNumberComponent } from './input-number/input-number.component';
 
 
 
@@ -18,7 +19,8 @@ import { AppleStoreComponent } from './apple-store/apple-store.component';
     IphoneListComponent,
     AppleAboutComponent,
     CartComponent,
-    AppleStoreComponent
+    AppleStoreComponent,
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,

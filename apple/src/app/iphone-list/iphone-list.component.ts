@@ -48,21 +48,5 @@ export class IphoneListComponent {
 
  ];
 
- constructor () {}
-
- moreQuantity(iphone:Iphone){
-  if(iphone.quantity <= iphone.stock && iphone.stock != 0) iphone.quantity++;
-}
-
-lessQuantity(iphone:Iphone){
-  if(iphone.quantity != 0) iphone.quantity--;
-}
-
-changeQuantity (event:any,iphone:Iphone):void {
-  if(event.keyCode<97 && event.keyCode>105){
-    event.preventDefault();
-  }
  
-}
-
 }

@@ -1,6 +1,6 @@
 <div class="table table-sm">
   <table>
-    <thead class="table align-middle" >
+    <thead class="table align-middle bg-light" >
         <tr>
            <th class="p-3">Diseño</th>
            <th class="p-3">Modelo</th>
@@ -24,15 +24,12 @@
               @if (iphone.stock > 0) {
                 <td>{{ iphone.stock }}</td>
                 <td>
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-primary btn-sm" (click)="moreQuantity(iphone)">+</button>               
-                    <input type="text" class="input-sm" [(ngModel)]="iphone.quantity" (keyup)="changeQuantity($event,iphone)" >
-                    <button type="button" class="btn btn-primary btn-sm" (click)="lessQuantity(iphone)">-</button>
-                  </div>
+                <app-input-number [quantity] = "iphone.quantity" [max]= "iphone.stock"></app-input-number>
                 </td>
               } @else {
                 <td><span class="badge text-bg-danger">Sin Stock</span></td>
               }
+              
               
              
             </tr>
