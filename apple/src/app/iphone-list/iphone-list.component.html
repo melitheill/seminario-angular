@@ -11,6 +11,7 @@
            <th class="p-3">Precio</th>
            <th class="p-3">Stock</th>
            <th class="p-3">Comprar</th>
+           <th class="p-3"> </th>
         </tr>
         @for (iphone of iphones; track iphone.model) {
             <tr class="m-3" [ngClass]="{'sale': iphone.sale}"> 
@@ -24,7 +25,8 @@
               @if (iphone.stock > 0) {
                 <td>{{ iphone.stock }}</td>
                 <td>
-                <app-input-number [quantity] = "iphone.quantity" [max]= "iphone.stock"></app-input-number>
+                <app-input-number [(quantity)] = "iphone.quantity" [max]= "iphone.stock"></app-input-number>
+                <button class="btn btn-sm" (click)="addCart(iphone)">add</button>
                 </td>
               } @else {
                 <td><span class="badge text-bg-danger">Sin Stock</span></td>

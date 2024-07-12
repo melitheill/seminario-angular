@@ -1,1 +1,7 @@
+
 <p>cart works!</p>
+<ul class="ms-5"> @for ( iphone of shopList$ |async; track iphone.model){
+    <li>
+        {{iphone.model}} : {{iphone.quantity}}
+    </li>}
+</ul>

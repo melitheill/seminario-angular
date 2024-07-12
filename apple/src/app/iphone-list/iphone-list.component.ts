@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Iphone } from './Iphone';
+import { AppleCartService } from '../apple-cart.service';
 
 @Component({
   selector: 'app-iphone-list',
@@ -48,5 +49,16 @@ export class IphoneListComponent {
 
  ];
 
+ constructor (private cart : AppleCartService){}
+
+ addCart (iphone:Iphone):void{
+    if(iphone.stock>0){
+      this.cart.addCart(iphone)
+    iphone.stock -= iphone.quantity;
+    iphone.quantity =0;
+    }
+    
+    
+ }
  
 }
