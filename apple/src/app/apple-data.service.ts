@@ -8,6 +8,6 @@ export class AppleDataService {
   constructor() { }
 
   public getAll(){
-    
+    // consume servicio de API
   }
 }
